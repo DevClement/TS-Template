@@ -1,0 +1,18 @@
+{
+    "page": {
+        "home": {
+            "title": "Accueil",
+            "body": {
+                "title": "Ma page d'accueil"
+            }
+        }
+    },
+    "partials": {
+        "header": {
+            "title": "Mon header"
+        },
+        "footer": {
+            "title": "Mon footer"
+        }
+    }
+}
