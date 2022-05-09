@@ -1,11 +1,11 @@
-import { Router } from 'express';
+import express from 'express';
 import home from './homeRoute';
 
-// guaranteed to get dependencies
 export default () => {
-	const app = Router();
+  // eslint-disable-next-line new-cap
+  const route: express.Router = express.Router();
 
-	home(app);
+  home(route);
 
-	return app
-}
+  return route;
+};

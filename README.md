@@ -18,6 +18,19 @@
   </p>
 </div>
 
+<!-- USAGE -->
+## Usage
+
+For recompile and run:
+   ```js
+  npm run build
+   ```
+
+
+For run:
+   ```js
+  npm start
+   ```
 
 <!-- LICENSE -->
 ## License
