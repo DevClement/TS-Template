@@ -26,16 +26,21 @@ For recompile and run:
   npm run build
    ```
 
+For recompile:
+   ```js
+  npm run build-server
+   ```
 
 For run:
    ```js
+  npm run move
   npm start
    ```
 
 <!-- LICENSE -->
 ## License
 
-The upload space developed by the company AP&SI belongs to the company Print&Design and no copies should be made.
+For DEGREVE-NAILLON Clément
 
 
 
