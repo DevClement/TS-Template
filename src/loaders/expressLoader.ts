@@ -6,6 +6,7 @@ import i18nLoader from './i18nLoader';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import config from '../config';
+import Helpeur from '../views/helpeurs/Helpeur';
 /*
 
 declare module 'express-session' {
@@ -41,6 +42,8 @@ export default ({app}: { app: express.Application }) => {
 
   app.use((req, res, next) => {
     res.locals.data = {};
+    res.locals.helpeur = Helpeur,
+    res.locals.version = config.version,
     next();
   });
 

@@ -1,20 +1,27 @@
 {
-  "name": "dessindecole-shop",
+  "name": "template",
   "version": "1.0.0",
-  "description": "Shop of dessindecole",
+  "description": "Template for NodeJS and TypeScript",
   "main": "dist/app.js",
   "scripts": {
     "start": "node .",
-    "build": "npm-run-all clean ESLint compile-sass tsc copy-assets start",
-    "clean": "rimraf dist/*",
-    "ESLint": "npx eslint . --ext .ts",
-    "compile-sass": "sass src/public/scss/style.scss dist/public/css/style.css",
+    "build": "npm-run-all printDate ESLint test compile-sass tsc copy-assets move start printDate",
+    "build-server": "npm-run-all printDate ESLint test compile-sass tsc copy-assets printDate",
+    "move": "npm-run-all printDate clean copy-code cleanCP printDate",
+    "copy-code": "mv dist_cp dist",
+    "clean": "rimraf dist/",
+    "cleanCP": "rimraf dist_cp/",
+    "ESLint": "npx eslint . --ext .ts --fix",
+    "test": "jest",
+    "compile-sass": "sass src/public/scss/style.scss dist_cp/public/css/style.css",
     "tsc": "tsc",
-    "copy-assets": "ts-node tools/copyAssets"
+    "copy-assets": "ts-node tools/copyAssets",
+    "printDate": "date +'%H:%M:%S'"
   },
   "author": "DEGREVE-NAILLON Clement",
   "license": "ISC",
   "dependencies": {
+    "@types/nodemailer": "^6.4.6",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
@@ -23,6 +30,7 @@
     "express-session": "^1.17.2",
     "i18n": "^0.13.3",
     "mysql2": "^2.3.0",
+    "nodemailer": "^6.8.0",
     "sass": "^1.51.0"
   },
   "devDependencies": {
@@ -33,15 +41,19 @@
     "@types/express": "^4.17.13",
     "@types/express-session": "^1.17.4",
     "@types/i18n": "^0.13.1",
+    "@types/jest": "^27.5.0",
     "@types/node": "^16.11.6",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "eslint": "^8.15.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.4",
+    "jest": "^28.1.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",
+    "ts-jest": "^28.0.2",
     "ts-node": "^10.2.0",
     "typescript": "^4.3.5"
   }

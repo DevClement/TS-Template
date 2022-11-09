@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
+        <meta name="theme-color" content="#007CBA"/>
 
-    <link rel="icon" href="/public/img/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/public/img/favicon.png" type="image/png">
+        <link rel="icon" href="/public/images/favicon/favicon.ico" sizes="any">
+        <link rel="icon" href="/public/images/favicon/icon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/public/images/favicon/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="/public/css/style.css">
+        <meta property="og:url" content="https://template.fr/">
+        <meta property="og:title" content="TEMPLATE">
+        <meta property="og:type" content="siteweb">
+        <meta property="og:image" content="/public/images/social_network.jpg">
+        <meta property="og:description" content="TEMPLATE website">
 
-    <script src="/public/js/default.js" defer></script>
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="TEMPLATE">
+        <meta property="twitter:url" content="https://template.fr/">
+        <meta name="twitter:title" content="TEMPLATE">
+        <meta name="twitter:description" content="TEMPLATE website">
+        <meta name="twitter:image" content="/public/images/social_network.jpg">
 
-    <title><%= __('page.' + page + '.title') %></title>
-</head>
-<body> 
-    <div class="<%= page %>">
-        <%- include('../pages/' + page) -%>
-    </div>
-</body>
+        <link rel="stylesheet" href="/public/css/style.css">
+
+        <script src="/public/js/default.js" defer></script>
+
+        <script>
+            console.log('Version :', "<%= version %>");
+        </script>
+
+        <title><%= __('page.' + data.page + '.title') %></title>
+    </head>
+    <body> 
+        <div class="page <%= data.page %>">
+            <!-- Header -->
+            <%- include('../partials/header') -%>
+
+            <!-- Section -->
+            <section>
+                <%- include('../pages/' + data.page) -%>
+            </section>
+
+            <!-- Footer -->
+            <%- include('../partials/footer') -%>
+        </div>
+    </body>
 </html>

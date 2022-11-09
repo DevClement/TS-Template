@@ -1,0 +1,33 @@
+// Icons
+// =============
+
+$icons: 'home';
+
+@each $icon in $icons {
+  .icon-#{$icon} {
+      -webkit-mask: url('/public/images/icons/' + $icon + '.svg') no-repeat center / contain;
+      mask: url('/public/images/icons/' + $icon + '.svg') no-repeat center / contain;
+  }
+}
+
+.icon {
+  display: inline-block;
+  mask-size: cover;
+}
+
+@for $i from 1 through 10 {
+  $base: 10;
+  $size: $base * $i;
+  .icon.icon-size-#{$size} { 
+    width: $size + 0px;
+    height: $size + 0px;
+  }
+}
+
+.icon.icon-color-white {
+  background-color: $color-icon-white;
+}
+
+.icon.icon-color-black {
+  background-color: $color-icon-black;
+}

@@ -1,5 +1,6 @@
 node_modules/
 dist
+dist_cp
 tmp/
 .env
 package-lock.json

@@ -1,0 +1,35 @@
+// Variables
+// ==================
+@import 'tools/variables';
+
+// Tools
+// ==================
+@import 'tools/mixins';
+@import 'tools/icons';
+@import 'tools/typography';
+
+// Elements
+// ==================
+@import 'partials/header';
+@import 'partials/footer';
+
+// Pages
+// ==================
+@import 'pages/home';
+
+// Generic
+// ==================
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: $color-backgroud;
+
+  font-family: $font;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: $color-text-link;
+}

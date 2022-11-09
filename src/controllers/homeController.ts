@@ -11,8 +11,12 @@ export default class HomeController {
    * @param {express.Response} res The response
    */
   static index(req: express.Request, res: express.Response) {
-    res.locals.data.page = 'home';
+    const data: any = {
+      page: 'home',
+    };
 
-    res.render('layouts/default', res.locals.data);
+    res.render('layouts/default', {
+      data,
+    });
   }
 }

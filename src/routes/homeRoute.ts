@@ -5,7 +5,9 @@ import HomeController from '../controllers/homeController';
 const route: express.Router = express.Router();
 
 export default (app: express.Router) => {
-  route.get('/', HomeController.index);
+  route.get('/',
+      [],
+      HomeController.index);
 
   app.use('/', route);
 };

@@ -1,16 +1,17 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "target": "es6",
-      "moduleResolution": "node",
-      "sourceMap": true,
-      "outDir": "dist",
-    },
-    "include": [
-      "src/**/*"],
-    "exclude": [
-        "tools",
-    ],
-    "lib": ["ES2015"],
-  }
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist_cp",
+    "typeRoots": ["./src/types", "./node_modules/@types"]
+  },
+  "include": [
+    "src/**/*"],
+  "exclude": [
+      "tools",
+  ],
+  "lib": ["ES2015"],
+}

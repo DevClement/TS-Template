@@ -5,7 +5,8 @@ i18n.configure({
   locales: ['fr'],
   directory: `${path.resolve()}/dist/locales/`,
   defaultLocale: 'fr',
-  cookie: 'lang',
+  cookie: 'locale',
+  autoReload: true,
   objectNotation: true,
 });
 
