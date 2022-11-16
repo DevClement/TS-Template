@@ -33,6 +33,7 @@ export default class MysqlLoader {
       connectionLimit: 10,
       queueLimit: 0,
       charset: 'utf8_general_ci',
+      port: config.database.port,
     });
   }
 }

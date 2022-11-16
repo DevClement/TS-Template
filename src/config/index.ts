@@ -1,36 +1,31 @@
-import dotenv from 'dotenv';
-
-const envFound = dotenv.config();
-if (envFound.error) {
-  throw new Error('Couldn\'t find .env file');
-}
-
+/* eslint-disable no-undef */
 export default {
-  port: parseInt(envFound.parsed.PORT, 10),
-  nodeEnv: envFound.parsed.NODE_ENV,
-  secretKey: envFound.parsed.SECRET_KEY,
-  websiteURL: envFound.parsed.URL,
+  port: parseInt(process.env.PORT, 10),
+  nodeEnv: process.env.NODE_ENV,
+  secretKey: process.env.SECRET_KEY,
+  websiteURL: process.env.URL,
   version: '1.0.1',
-  activity: envFound.parsed.ACTIVITY,
+  activity: process.env.ACTIVITY,
 
   database: {
-    host: envFound.parsed.MYSQL_HOST,
-    name: envFound.parsed.MYSQL_NAME,
-    user: envFound.parsed.MYSQL_USER,
-    password: envFound.parsed.MYSQL_PASSWORD,
-    prefix: envFound.parsed.MYSQL_PREFIX,
+    host: process.env.MYSQL_HOST,
+    name: process.env.MYSQL_NAME,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    prefix: process.env.MYSQL_PREFIX,
+    port: Number.parseInt(process.env.MYSQL_PORT, 10),
   },
 
   mailer: {
-    host: envFound.parsed.MAILER_HOST,
-    port: envFound.parsed.MAILER_PORT,
+    host: process.env.MAILER_HOST,
+    port: process.env.MAILER_PORT,
     auth: {
-      user: envFound.parsed.MAILER_AUTH_USER,
-      password: envFound.parsed.MAILER_AUTH_PASSWORD,
+      user: process.env.MAILER_AUTH_USER,
+      password: process.env.MAILER_AUTH_PASSWORD,
     },
     sender: {
-      name: envFound.parsed.MAILER_SENDER_NAME,
+      name: process.env.MAILER_SENDER_NAME,
     },
-    internal: envFound.parsed.MAILER_INTERNAL.split(','),
+    internal: process.env.MAILER_INTERNAL.split(','),
   },
 };
