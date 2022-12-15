@@ -1,3 +1,4 @@
+import config from '../config';
 import MysqlLoader from '../loaders/mysqlLoader';
 import LocaleEntity from './entities/LocaleEntity';
 import ILocale from './interfaces/ILocale';
@@ -8,14 +9,14 @@ import ILocale from './interfaces/ILocale';
  */
 export default class LocalesModel {
   // The name of the table
-  static TABLE_NAME = `locales`;
+  static TABLE_NAME = `print_locales`;
 
   /**
    * Retrieves all ToOffer entity from the store_to_offer table
    * @param {string} activity The activity
    */
   static async getAll(activity: string): Promise<LocaleEntity[]> {
-    const [rows] = await MysqlLoader.getInstance().query(`SELECT * FROM ${LocalesModel.TABLE_NAME} WHERE activity = ?`, [activity]);
+    const [rows] = await MysqlLoader.getInstance().query(`SELECT * FROM ${LocalesModel.TABLE_NAME} WHERE type = 'NA' AND activity = ?`, [activity]);
 
     const locales: LocaleEntity[] = [];
 
@@ -26,5 +27,16 @@ export default class LocalesModel {
       });
     }
     return locales;
+  }
+
+  /**
+   * Allows to sync locales.
+   */
+  static async syncLocales(): Promise<void> {
+    const locales = await LocalesModel.getAll(config.activity);
+
+    for (const locale of locales) {
+      locale.saveFile();
+    }
   }
 }

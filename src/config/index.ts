@@ -10,7 +10,7 @@ export default {
   nodeEnv: envFound.parsed.NODE_ENV,
   secretKey: envFound.parsed.SECRET_KEY,
   websiteURL: envFound.parsed.URL,
-  version: '1.0.1',
+  version: '1.0.2',
   activity: envFound.parsed.ACTIVITY,
 
   database: {

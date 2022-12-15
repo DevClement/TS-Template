@@ -1,6 +1,8 @@
 import ILocale from '../interfaces/ILocale';
 import fs from 'fs';
 import path from 'path';
+import Utils from '../../utils';
+import {PRIORITY_HIGH} from 'constants';
 
 /**
  * LocaleEntity class
@@ -13,6 +15,8 @@ export default class LocaleEntity {
   private _type: string;
   private _translation: JSON;
 
+  public static DEFAULT = new Map();
+
   /**
    * Create Locale entity
    * @param {ILocale} locale The locale interface
@@ -22,7 +26,19 @@ export default class LocaleEntity {
     this.lang = locale.lang;
     this.activity = locale.activity;
     this.type = locale.type;
-    this.translation = JSON.parse(locale.translation);
+
+    try {
+      this.translation = JSON.parse(locale.translation);
+
+      LocaleEntity.DEFAULT.set(this.lang, this.translation);
+    } catch (error) {
+      if (LocaleEntity.DEFAULT.get(this.lang)) {
+        this.translation = LocaleEntity.DEFAULT.get(this.lang);
+        Utils.log(PRIORITY_HIGH, `Language ${this.lang} JSON is not well trained`);
+      } else {
+        throw new Error(`Language ${this.lang} JSON is not well trained`);
+      }
+    }
 
     Object.setPrototypeOf(this, LocaleEntity.prototype);
   }

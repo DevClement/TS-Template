@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import config from '../config';
 import Helpeur from '../views/helpeurs/Helpeur';
+import LocalesModel from '../models/LocalesModel';
 /*
 
 declare module 'express-session' {
@@ -15,7 +16,7 @@ declare module 'express-session' {
 
 */
 
-export default ({app}: { app: express.Application }) => {
+export default async ({app}: { app: express.Application }) => {
   app.use(cors());
 
   app.use(cookieParser());
@@ -35,6 +36,8 @@ export default ({app}: { app: express.Application }) => {
   app.use(express.urlencoded({extended: true}));
 
   app.use(sessionMiddleware);
+
+  await LocalesModel.syncLocales();
 
   app.use(i18nLoader.init);
 

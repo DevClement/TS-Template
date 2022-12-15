@@ -19,4 +19,6 @@ server.listen(config.port, () => {
   Utils.log(PRIORITY_HIGH, 'Starting', config.websiteURL);
   Utils.log(PRIORITY_HIGH, 'Port :', config.port);
   Utils.log(PRIORITY_HIGH, 'Version :', config.version);
+  console.log('');
+  console.log('');
 });
